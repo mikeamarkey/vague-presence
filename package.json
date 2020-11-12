@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx lite-server"
+    "dev": "npx lite-server",
+    "dev-server": "npx nodemon server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.1",
+    "ws": "^7.4.0"
+  }
 }
