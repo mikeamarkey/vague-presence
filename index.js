@@ -1,7 +1,7 @@
-(async () => {
-  const size = 16
-  const frameSize = '100px'
-  const speed = 2000
+;(async () => {
+  const size = 8
+  const frameSize = '200px'
+  const speed = 200
   const socketUrl = 'ws://localhost:8080'
   let socket = null
   let people = {}
@@ -27,7 +27,7 @@
     const video = document.createElement('video')
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
-      video: { width: { exact: size }, height: { exact: size } }
+      video: { width: { exact: size }, height: { exact: size } },
     })
     video.srcObject = stream
     video.onloadedmetadata = () => video.play()

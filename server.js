@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid')
 
 const wss = new WebSocket.Server({ port: 8080 })
 const users = {}
+let interval = null
 
 wss.on('connection', (ws) => {
   ws.id = uuidv4()
@@ -16,7 +17,13 @@ wss.on('connection', (ws) => {
     delete users[ws.id]
   })
 
-  setInterval(() => {
-    ws.send(JSON.stringify(users))
-  }, 2000)
+  if (!interval) {
+    interval = setInterval(() => {
+      wss.clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(JSON.stringify(users))
+        }
+      })
+    }, 200)
+  }
 })
