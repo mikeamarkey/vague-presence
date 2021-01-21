@@ -2,7 +2,7 @@
   const size = 8
   const frameSize = '200px'
   const speed = 200
-  const socketUrl = 'ws://localhost:8080'
+  const host = location.origin.replace(/^http/, 'ws')
   let socket = null
   let people = {}
 
@@ -40,7 +40,7 @@
 
   function connectSocket() {
     try {
-      socket = new WebSocket(socketUrl)
+      socket = new WebSocket(host)
       socket.onmessage = (message) => {
         people = JSON.parse(message.data)
         for (let key in people) {
