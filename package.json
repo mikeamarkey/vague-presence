@@ -1,13 +1,13 @@
 {
-  "name": "presence",
+  "name": "vague-presence",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "a vague presence app",
+  "engines": {
+    "node": "14.14.0"
+  },
   "scripts": {
     "start": "node server/index.js"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
